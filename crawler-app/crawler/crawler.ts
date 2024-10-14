@@ -21,7 +21,7 @@ import { writeTxtFile } from "../support/helpers";
 
   for (let i = 0; i < 3; i++) {
     const result = await google.openResultLink(i, keyboardKey, htmlTag);
-    await writeTxtFile(i, result);
+    writeTxtFile(i, result);
     console.log(result);
   }
 

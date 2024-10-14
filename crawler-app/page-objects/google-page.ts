@@ -34,6 +34,7 @@ export default class GoogleSearch {
     const tabPromise = this.page.context().waitForEvent("page");
     tabs[pageIndex] = await tabPromise;
     await tabs[pageIndex].waitForLoadState();
+    await tabs[pageIndex].bringToFront();
     const htmlContent = await tabs[pageIndex].innerText(htmlTag);
     jsonParsed[pageIndex] = JSON.parse(JSON.stringify(htmlContent));
     return jsonParsed[pageIndex];

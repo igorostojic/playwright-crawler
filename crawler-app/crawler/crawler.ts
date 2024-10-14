@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { chromium } from "playwright";
-import GoogleSearch from "../pages/google-page";
+import GoogleSearch from "../page-objects/google-page";
 import { writeTxtFile } from "../support/helpers";
 
 (async function crawler(search: string, keyboardKey: string, htmlTag: string) {

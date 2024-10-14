@@ -3,10 +3,16 @@ import { chromium } from "playwright";
 import GoogleSearch from "../page-objects/google-page";
 import { writeTxtFile } from "../support/helpers";
 
-(async function crawler(search: string, keyboardKey: string, htmlTag: string) {
+export default async function crawler(
+  search: string,
+  keyboardKey: string,
+  htmlTag: string
+) {
   //browser start
   const browser = await chromium.launch({ headless: false });
-  const context = await browser.newContext();
+  const context = await browser.newContext({
+    viewport: { width: 1920, height: 1080 },
+  });
   const page = await context.newPage();
 
   //google page page object
@@ -26,11 +32,4 @@ import { writeTxtFile } from "../support/helpers";
   }
 
   await browser.close();
-})("", "", "");
-
-/**
- * crawler function has three parameters that we can use
- * search: is an input in google search field
- * keyboardKey: is simulating press of Control or Cmd depending on the system that script is being run on and values are "Control" for Windows and "Meta" for MacOS
- * htmlTag: is a tag from which we extract text and depending on what we need we can write it "body", "div", or if we need class, href or some other attribute we write "[class]", "[id]"
- */
+}

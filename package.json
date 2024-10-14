@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "crawl": "npx tsx crawler-app/crawler/crawler.ts"
+    "crawl": "npx tsx crawler-app/crawler/crawl.ts"
   },
   "keywords": [],
   "author": "",
